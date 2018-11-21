@@ -1,0 +1,207 @@
+.wrapper{
+    position: relative;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    margin: 100px auto;
+    background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400%;
+    box-shadow:
+            0 0 0 20px rgba(0, 0, 0, .05),
+            inset 0 0 0 10px rgba(0, 0, 0, .03),
+            inset 0 0 0 20px rgba(0, 0, 0, .03),
+            inset 0 0 0 30px rgba(0, 0, 0, .03),
+            inset 0 0 0 40px rgba(0, 0, 0, .03),
+            inset 0 0 0 50px rgba(0, 0, 0, .03),
+            inset 0 0 0 60px rgba(0, 0, 0, .03);
+    animation: daylight 15s infinite ease-in-out;
+}
+
+.cloudy-wrapper{
+    position: absolute;
+    top: 50px;
+    display: flex;
+    left: 20px;
+}
+.transform-scale-5{
+    transform: scale(5);
+}
+.cloudy-item{
+    position: relative;
+    opacity: .2;
+    width: 130px;
+    height: 30px;
+    background-color: #f1f1f1;
+    border-radius: 50%;
+    animation: shaking infinite linear 5s;
+}
+.cloudy-item::before, .cloudy-item::after{
+    content: '';
+    display: inline-block;
+    background-color: #f1f1f1;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+}
+.cloudy-item::before{
+    left: 18px;
+}
+.cloudy-item::after{
+    left: 52px;
+    width: 43px;
+    height: 36px;
+}
+.cloudy2{
+    margin: 20px;
+}
+
+.wave-wrapper{
+    position: absolute;
+    bottom: 0;
+    width: 500px;
+    height: 100px;
+    background: linear-gradient(to top, #1a97d5, #2d7bd5 10%, #2162d5);
+    opacity: .8;
+    border-radius: 20%;
+    box-shadow: inset 0 10px 0 10px rgba(0,0,0, .05),
+            inset 0 10px 0 30px rgba(0,0,0, .05),
+            inset 0 10px 0 40px rgba(0,0,0, .05),
+            inset 0 10px 0 60px rgba(0,0,0, .05);
+    animation: flowing ease-in-out infinite 15s;
+}
+
+.ship-flag{
+    width: 0;
+    height: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #f1f1f1 transparent transparent transparent;
+    position: absolute;
+    left: 300px;
+    top: 10px;
+    transform: rotateZ(106deg) skew(-6deg);
+    /*animation: moving linear 15s infinite;*/
+}
+.ship-flag::before{
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background-color: #f1f1f1;
+    position: absolute;
+    transform: rotate(-45deg) translate(1px, -6px);
+    animation: shorting linear 15s infinite;
+}
+
+.start-wrapper{
+}
+.start-item{
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 1px;
+    height: 1px;
+    background-color: white;
+    animation: shooting 5s linear infinite;
+}
+.start-item2 {
+    transform: rotate(20deg);
+    animation: shooting2 5s linear infinite;
+}
+.start-item::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 1px;
+    right: 1px;
+    top: 0;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4));
+}
+@keyframes shooting {
+    from {
+        left: -100px;
+    }
+    to {
+        left: calc(100% + 100px);
+    }
+}
+@keyframes shooting2 {
+    from {
+        left: -50px;
+        top: 100px;
+    }
+    to {
+        left: calc(100% + 50px);
+        top: 300px;
+    }
+}
+@keyframes daylight {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+@keyframes shaking {
+    0%{
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+@keyframes flowing {
+    0%{
+        box-shadow: inset 0 10px 0 10px rgba(0,0,0, .05),
+        inset 0 10px 0 30px rgba(0,0,0, .05),
+        inset 0 10px 0 40px rgba(0,0,0, .05),
+        inset 0 10px 0 60px rgba(0,0,0, .05);
+    }
+    50% {
+        box-shadow: inset 0 10px 0 15px rgba(0,0,0, .05),
+        inset 0 10px 0 40px rgba(0,0,0, .05),
+        inset 0 10px 0 60px rgba(0,0,0, .05),
+        inset 0 10px 0 2px rgba(0,0,0, .05);
+    }
+    100% {
+        box-shadow: inset 0 10px 0 60px rgba(0,0,0, .05),
+        inset 0 10px 0 40px rgba(0,0,0, .05),
+        inset 0 10px 0 20px rgba(0,0,0, .05),
+        inset 0 10px 0 10px rgba(0,0,0, .05);
+    }
+}
+@keyframes moving {
+    0% {
+        top: 10px;
+        left: 300px
+    }
+    50% {
+        top: 15px;
+        left: 295px
+    }
+    100% {
+        top: 10px;
+        left: 300px
+    }
+}
+@keyframes shorting {
+    0% {
+        width: 20px
+    }
+    50% {
+        width: 16px;
+    }
+    100% {
+        width: 20px;
+    }
+}
